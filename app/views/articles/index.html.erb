@@ -1,0 +1,23 @@
+
+<h1>Noticias</h1>
+
+<table>
+
+<% result = Article.order(created_at: :asc).last(10)
+
+while !result.empty?
+        article = result.pop %>
+        <tr><th><%= article.title %></th></tr>
+        <tr><td><%= article.text %></td></tr>
+        <tr><td><%= link_to 'Noticia Completa', article_path(article) %></td></tr>
+        <tr><td><hr><td></tr>
+          <%
+end %>
+
+
+</table>
+
+<br>
+
+
+<%= link_to 'Admin', '/admin' %>

@@ -9,7 +9,7 @@
   <%= @article.text %>
 </p>
 
-<h2>Comments</h2>
+<h2>Commentarios</h2>
 <% @article.comments.each do |comment| %>
   <p>
     <%= comment.commenter %>: <%= comment.body %>
@@ -18,14 +18,14 @@
   </p>
 <% end %>
 
-<h2>Add a comment:</h2>
+
 <%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
   <p>
-    <%= form.label :commenter %><br>
+    <%= form.label :nombre %><br>
     <%= form.text_field :commenter %>
   </p>
   <p>
-    <%= form.label :body %><br>
+    <%= form.label :comentario %><br>
     <%= form.text_area :body %>
   </p>
   <p>
@@ -33,5 +33,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+
 <%= link_to 'Back', articles_path %>
